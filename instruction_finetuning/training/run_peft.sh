@@ -1,7 +1,7 @@
 python train.py \
 --model_name "meta-llama/Llama-2-7b-chat-hf" \
 --dataset_name "smangrul/ad-copy-generation" \
---max_seq_len 2048 \
+--max_seq_len 512 \
 --max_steps 100 \
 --logging_steps 5 \
 --eval_steps 25 \
@@ -10,8 +10,8 @@ python train.py \
 --fp16 True \
 --packing True \
 --output_dir "llama-ad-gen" \
---per_device_train_batch_size 8 \
---gradient_accumulation_steps 1 \
+--per_device_train_batch_size 1 \
+--gradient_accumulation_steps 8 \
 --dataset_text_field "content" \
 --use_peft_lora True \
 --lora_r 8 \
@@ -20,5 +20,5 @@ python train.py \
 --use_4bit_qunatization True \
 --use_nested_quant True \
 --bnb_4bit_compute_dtype "float16" \
---use_flash_attn True
+--use_flash_attn False
 

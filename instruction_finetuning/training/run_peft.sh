@@ -20,4 +20,5 @@ python train.py \
 --use_4bit_qunatization True \
 --use_nested_quant True \
 --bnb_4bit_compute_dtype "float16" \
---use_flash_attn False
+--use_flash_attn False \
+--use_gradient_checkpointing

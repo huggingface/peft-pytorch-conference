@@ -282,7 +282,7 @@ def create_and_prepare_model(args):
         device_map=device_map,
         use_cache=not args.no_gradient_checkpointing,
         trust_remote_code=True,
-        use_flash_attention=args.use_flash_attn,
+        use_flash_attention_2=args.use_flash_attn,
     )
 
     if (args.use_4bit_qunatization or args.use_8bit_qunatization) and args.use_peft_lora:

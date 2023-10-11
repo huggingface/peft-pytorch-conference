@@ -10,8 +10,8 @@ python train.py \
 --fp16 True \
 --packing True \
 --output_dir "llama-ad-gen" \
---per_device_train_batch_size 1 \
---gradient_accumulation_steps 8 \
+--per_device_train_batch_size 8 \
+--gradient_accumulation_steps 1 \
 --dataset_text_field "content" \
 --use_peft_lora True \
 --lora_r 8 \
@@ -21,4 +21,3 @@ python train.py \
 --use_nested_quant True \
 --bnb_4bit_compute_dtype "float16" \
 --use_flash_attn False
-

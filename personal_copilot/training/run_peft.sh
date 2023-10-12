@@ -8,8 +8,8 @@ python train.py \
     --max_steps 2000 \
     --batch_size 8 \
     --gradient_accumulation_steps 2 \
-    --learning_rate 2e-4 \
-    --lr_scheduler_type "constant" \
+    --learning_rate 5e-4 \
+    --lr_scheduler_type "cosine" \
     --weight_decay 0.01 \
     --num_warmup_steps 30 \
     --eval_freq 100 \
@@ -30,4 +30,5 @@ python train.py \
     --use_flash_attn \
     --use_4bit_qunatization \
     --use_nested_quant \
-    --bnb_4bit_compute_dtype "bfloat16"
+    --bnb_4bit_compute_dtype "bfloat16" \
+    --seed 25

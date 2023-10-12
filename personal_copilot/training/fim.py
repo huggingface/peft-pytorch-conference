@@ -6,7 +6,7 @@ import numpy as np
 # this is expensive so we cache it
 @functools.lru_cache(maxsize=None)
 def get_fim_token_ids(tokenizer):
-    return tokenizer.bos_token_id, tokenizer.prefix_id, tokenizer.suffix_id, tokenizer.middle_id, 0
+    return tokenizer.bos_token_id, tokenizer.suffix_id, tokenizer.prefix_id, tokenizer.middle_id, 0
 
 
 ## Adapted from https://github.com/bigcode-project/Megatron-LM/blob/6c4bf908df8fd86b4977f54bf5b8bd4b521003d1/megatron/data/gpt_dataset.py

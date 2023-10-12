@@ -31,4 +31,4 @@ python train.py \
     --use_4bit_qunatization \
     --use_nested_quant \
     --bnb_4bit_compute_dtype "bfloat16" \
-    --seed 25
+    --seed 24

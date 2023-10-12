@@ -1,6 +1,6 @@
 python train.py \
     --model_path "codellama/CodeLlama-13b-Instruct-hf" \
-    --dataset_name "smangrul/hf-stack-v2" \
+    --dataset_name "smangrul/hf-stack-peft" \
     --subset "data" \
     --data_column "content" \
     --split "train" \

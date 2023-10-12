@@ -1,6 +1,6 @@
 python train.py \
     --model_path "codellama/CodeLlama-13b-Instruct-hf" \
-    --dataset_name "smangrul/hf-stack-peft" \
+    --dataset_name "smangrul/hf-stack-v3" \
     --subset "data" \
     --data_column "content" \
     --split "train" \
@@ -8,13 +8,13 @@ python train.py \
     --max_steps 2000 \
     --batch_size 8 \
     --gradient_accumulation_steps 2 \
-    --learning_rate 5e-4 \
+    --learning_rate 3e-4 \
     --lr_scheduler_type "cosine" \
     --weight_decay 0.01 \
     --num_warmup_steps 30 \
     --eval_freq 100 \
     --save_freq 100 \
-    --log_freq 25 \
+    --log_freq 5 \
     --push_to_hub \
     --num_workers 4 \
     --bf16 \

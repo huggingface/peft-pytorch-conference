@@ -282,7 +282,7 @@ def create_and_prepare_model(args):
         device_map=device_map,
         use_cache=not args.no_gradient_checkpointing,
         trust_remote_code=True,
-        use_flash_attention_2=args.use_flash_attn,
+        # use_flash_attention_2=args.use_flash_attn,
     )
 
     if (args.use_4bit_qunatization or args.use_8bit_qunatization) and args.use_peft_lora:
@@ -371,6 +371,14 @@ def run_training(args, train_data, val_data):
 
 
 def main(args):
+    if args.use_flash_attn:
+        warnings.warn(
+            "Flash V2 support implemented here ignores padding/attention_mask/custom_mask. \n"
+            + "It is meant for continued pre-training with packing inputs to consume the entire sequence lengths."
+        )
+        from llama_flash_attn_monkey_patch import replace_llama_attn_with_flash_attn
+
+        replace_llama_attn_with_flash_attn()
     tokenizer = AutoTokenizer.from_pretrained(args.model_path, use_auth_token=True, trust_remote_code=True)
     train_dataset, eval_dataset = create_datasets(tokenizer, args)
     run_training(args, train_dataset, eval_dataset)

@@ -183,6 +183,7 @@ def create_and_prepare_model(args):
 
     model = AutoModelForCausalLM.from_pretrained(
         args.model_name,
+        torch_dtype=compute_dtype,
         load_in_8bit=load_in_8bit,
         quantization_config=bnb_config,
         device_map=device_map,
